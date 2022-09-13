@@ -12,12 +12,20 @@ var options = {
     "image": "https://avatars.githubusercontent.com/u/65504583?v=4", // You can give your logo url
     "order_id": "@Html.DisplayFor(model => model.OrderId)",
     "handler": function (response){
+
+        /* window.location.href = "Success.cshtml?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;*/
+
+
+        alert(" Your Payment ID: "+response.razorpay_payment_id);
+            alert(" Your Order ID: "+response.razorpay_order_id);
+        alert(" Your Signature ID: " + response.razorpay_signature); 
+      
         // After payment successfully made response will come here
         // Set the data in hidden form
-        document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+      /* document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
         document.getElementById('rzp_orderid').value = response.razorpay_order_id;
         // // Let's submit the form automatically
-        document.getElementById('rzp-paymentresponse').click();
+        document.getElementById('rzp-paymentresponse').click(); */
     },
     "prefill": {
         "name": "@Html.DisplayFor(model => model.Name)",
@@ -45,5 +53,6 @@ var options = {
 <form action="CompleteOrderProcess" method="post" asp-antiforgery="true">
     <input type="hidden" id="rzp_paymentid" name="rzp_paymentid" />
     <input type="hidden" id="rzp_orderid"  name="rzp_orderid"/>
+    <input type="hidden" id=""
     <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
 </form>
