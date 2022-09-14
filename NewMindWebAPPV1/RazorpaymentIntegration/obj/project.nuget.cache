@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+a6g0J8RG/NxoPggpzb19oRazelm62xZV3Sw9AvktQ78efUBeH5iQAKkR2FM8GS2wovQLkuIYeS7kFsdk1/Cyg==",
+  "dgSpecHash": "kenlaOStkAtK6rsP+oKr7Su+FzfY0r5JE3jtOIYFBjfE+wSKo6EpUIxEoFhyfEy6+blrBNr5r9FfdJV0PNR46w==",
   "success": true,
   "projectFilePath": "D:\\NewMindWebApp\\NewMindWebAPPV1\\RazorpaymentIntegration\\RazorpaymentIntegration.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.0\\microsoft.entityframeworkcore.3.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.0\\microsoft.entityframeworkcore.abstractions.3.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.0\\microsoft.entityframeworkcore.analyzers.3.1.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.0\\microsoft.entityframeworkcore.design.3.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.0\\microsoft.entityframeworkcore.relational.3.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.0\\microsoft.entityframeworkcore.sqlserver.3.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.0\\microsoft.extensions.caching.abstractions.3.1.0.nupkg.sha512",
