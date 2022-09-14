@@ -8,6 +8,8 @@ namespace RazorpaymentIntegration.Models
 
         public DbSet<MerchantOrder> MerchantOrders { get; set; }
 
+        public DbSet<OrderDetails> orderDetailss { get; set; }
+
         public PaymentDbContext(DbContextOptions<PaymentDbContext> options) : base(options)
         { }
     }

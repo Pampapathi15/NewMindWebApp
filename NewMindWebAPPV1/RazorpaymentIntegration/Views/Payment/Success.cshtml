@@ -3,6 +3,9 @@
  
 }
 
-<div class="container" style="text-align:center;">
-    <img src="http://www.shikharclasses.in/wp-content/uploads/2020/04/PAYMENT-SUCCESS.png" />
-</div>
+<form action="CompleteOrderProcess" method="post" asp-antiforgery="true">
+    <input type="hidden" id="rzp_paymentid" name="rzp_paymentid" />
+    <input type="hidden" id="rzp_orderid"  name="rzp_orderid"/>
+    <input type="hidden" id="razorpay_signature" name="razorpay_signature"/>
+    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
+</form>

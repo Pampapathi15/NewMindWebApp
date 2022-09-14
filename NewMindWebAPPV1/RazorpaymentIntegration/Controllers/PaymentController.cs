@@ -7,20 +7,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 
 namespace RazorpaymentIntegration.Controllers
 {
     public class PaymentController : Controller
     {
+        private readonly PaymentDbContext dbContext;
+
+       /*  public PaymentController(PaymentDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        } */
+
         private readonly ILogger<PaymentController> _logger;
         private readonly IPaymentService _service;
         private IHttpContextAccessor _httpContextAccessor;
-        public PaymentController(ILogger<PaymentController> logger, IPaymentService service, IHttpContextAccessor httpContextAccessor)
+        public PaymentController(ILogger<PaymentController> logger, IPaymentService service, IHttpContextAccessor httpContextAccessor, PaymentDbContext dbContext)
         {
             _logger = logger;
             _service = service;
             _httpContextAccessor = httpContextAccessor;
+            this.dbContext = dbContext;
         }
         public IActionResult Index()
         {
@@ -36,18 +46,31 @@ namespace RazorpaymentIntegration.Controllers
         public async Task<IActionResult> CompleteOrderProcess()
         {
             string PaymentMessage = await _service.CompleteOrderProcess(_httpContextAccessor);
+           
+
             if (PaymentMessage == "captured")
-            {
+            {              
                 return RedirectToAction("Success");
+             
             }
             else
             {
                 return RedirectToAction("Failed");
             }
         }
-        public IActionResult Success()
+        public async Task<IActionResult> Success(RequestOrderDetails requestOrderDetails)
         {
-            return View();
+            var orderDetails = new OrderDetails()
+            {
+                id = Guid.NewGuid(),
+                rzp_paymentid = requestOrderDetails.rzp_paymentid,
+                rzp_orderid = requestOrderDetails.rzp_orderid,
+                razorpay_signature = requestOrderDetails.razorpay_signature,
+            };
+            await dbContext.orderDetailss.AddAsync(orderDetails);
+            await dbContext.SaveChangesAsync();
+           
+            return Ok(orderDetails);
         }
 
         public IActionResult Failed()

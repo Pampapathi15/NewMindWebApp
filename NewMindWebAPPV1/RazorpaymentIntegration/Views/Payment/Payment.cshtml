@@ -16,16 +16,18 @@ var options = {
         /* window.location.href = "Success.cshtml?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;*/
 
 
-        alert(" Your Payment ID: "+response.razorpay_payment_id);
+       /* alert(" Your Payment ID: "+response.razorpay_payment_id);
             alert(" Your Order ID: "+response.razorpay_order_id);
-        alert(" Your Signature ID: " + response.razorpay_signature); 
+        alert(" Your Signature ID: " + response.razorpay_signature); */
       
         // After payment successfully made response will come here
         // Set the data in hidden form
-      /* document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+       document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
         document.getElementById('rzp_orderid').value = response.razorpay_order_id;
+
+        document.getElementById('razorpay_signature').value = response.razorpay_signature;
         // // Let's submit the form automatically
-        document.getElementById('rzp-paymentresponse').click(); */
+        document.getElementById('rzp-paymentresponse').click(); 
     },
     "prefill": {
         "name": "@Html.DisplayFor(model => model.Name)",
@@ -50,9 +52,9 @@ var options = {
 }
 </script>
 
-<form action="CompleteOrderProcess" method="post" asp-antiforgery="true">
+<form action="Success" method="post" asp-antiforgery="true">
     <input type="hidden" id="rzp_paymentid" name="rzp_paymentid" />
     <input type="hidden" id="rzp_orderid"  name="rzp_orderid"/>
-    <input type="hidden" id=""
+    <input type="hidden" id="razorpay_signature" name="razorpay_signature"/>
     <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
 </form>
