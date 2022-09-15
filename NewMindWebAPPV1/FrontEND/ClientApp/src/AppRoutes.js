@@ -2,6 +2,7 @@ import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import { Student } from "./components/Student";
+import { AddStudent } from "./components/AddStudent"
 
 const AppRoutes = [
   {
@@ -19,7 +20,12 @@ const AppRoutes = [
    {
        path: '/student-data',
        element: <Student />
+    },
+    {
+        path: '/AddStudent-data',
+        element: <AddStudent/>
     }
+
 
 ];
 

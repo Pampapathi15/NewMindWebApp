@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 
 
+
 export class Student extends Component {
 
     constructor(props) {
@@ -24,6 +25,7 @@ export class Student extends Component {
     componentDidMount() {
         this.refreshList();
     }   
+ 
 
     render() {
         const {
@@ -33,6 +35,7 @@ export class Student extends Component {
         return (
             <div>
                 <h3>This is Student page</h3>
+                
 
                 <table className="table table-striped">
                     <thead>
