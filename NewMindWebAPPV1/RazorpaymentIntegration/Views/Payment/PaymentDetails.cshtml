@@ -1,0 +1,29 @@
+﻿@model List<RazorpaymentIntegration.Models.OrderDetails>
+
+    <h1>Payment Details</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                 <th>signature</th>
+                  <th>OrderID</th>
+                   <th>PaymentId</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach(var data in Model)
+            {
+                <tr>
+                    <td>@data.id</td>
+                    <td>@data.razorpay_signature</td>
+                    <td>@data.rzp_orderid</td>
+                    <td>@data.rzp_paymentid</td>
+
+                </tr>
+
+                    }
+
+        </tbody>
+
+    </table>

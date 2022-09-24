@@ -1,9 +1,9 @@
 ﻿@model RazorpaymentIntegration.Models.MerchantOrder
-
 <button id="RzP_btn" hidden>Pay</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
+<script>    
 var options = {
+   
     "key": "@Html.DisplayFor(model => model.RazorpayKey)", // Enter the Key ID generated from the Dashboard
     "amount": "@Html.DisplayFor(model => model.Amount)", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "@Html.DisplayFor(model => model.Currency)",
@@ -13,33 +13,29 @@ var options = {
     "order_id": "@Html.DisplayFor(model => model.OrderId)",
     "handler": function (response){
 
-        /* window.location.href = "Success.cshtml?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;*/
-
-
-       /* alert(" Your Payment ID: "+response.razorpay_payment_id);
-            alert(" Your Order ID: "+response.razorpay_order_id);
-        alert(" Your Signature ID: " + response.razorpay_signature); */
-      
+        console.log(response)
+          
         // After payment successfully made response will come here
         // Set the data in hidden form
        document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
         document.getElementById('rzp_orderid').value = response.razorpay_order_id;
-
+      
         document.getElementById('razorpay_signature').value = response.razorpay_signature;
         // // Let's submit the form automatically
         document.getElementById('rzp-paymentresponse').click(); 
-    },
+     },
+
     "prefill": {
         "name": "@Html.DisplayFor(model => model.Name)",
         "email": "@Html.DisplayFor(model => model.Email)",
         "contact": "@Html.DisplayFor(model => model.PhoneNumber)"
-    },
+     },
     "notes": {
         "address": "@Html.DisplayFor(model => model.Address)"
-    },
+     },
     "theme": {
         "color": "#F37254"
-    }
+     }
 };
     var rzp1 = new Razorpay(options);
     //<!-- onload function -->
@@ -52,9 +48,10 @@ var options = {
 }
 </script>
 
-<form action="Success" method="post" asp-antiforgery="true">
+
+<form action="CompleteOrderProcess" method="post" asp-antiforgery="true">   
     <input type="hidden" id="rzp_paymentid" name="rzp_paymentid" />
     <input type="hidden" id="rzp_orderid"  name="rzp_orderid"/>
-    <input type="hidden" id="razorpay_signature" name="razorpay_signature"/>
+    <input type="hidden" id="razorpay_signature" name="razorpay_signature"/>  
     <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
 </form>

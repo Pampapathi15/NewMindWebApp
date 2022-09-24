@@ -71,6 +71,7 @@ namespace RazorpaymentIntegration.Service
                 Razorpay.Api.Payment paymentCaptured = payment.Capture(options);
                 string amt = paymentCaptured.Attributes["amount"];
                 return paymentCaptured.Attributes["status"];
+
             }
             catch (Exception)
             {

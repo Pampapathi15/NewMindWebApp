@@ -10,6 +10,6 @@ namespace RazorpaymentIntegration.Models
 
         public string rzp_orderid { get; set; }
 
-        public string razorpay_signature { get; set; }
+        public string razorpay_signature { get; set; }          
     }
 }

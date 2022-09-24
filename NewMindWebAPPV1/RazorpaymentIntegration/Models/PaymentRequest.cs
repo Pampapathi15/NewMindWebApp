@@ -20,6 +20,5 @@ namespace RazorpaymentIntegration.Models
         public string Address { get; set; }
         [Required]
         public int Amount { get; set; }
-
     }
 }

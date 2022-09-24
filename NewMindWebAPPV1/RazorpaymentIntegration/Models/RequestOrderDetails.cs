@@ -1,4 +1,5 @@
-﻿namespace RazorpaymentIntegration.Models
+﻿using System;
+namespace RazorpaymentIntegration.Models
 {
     public class RequestOrderDetails
     {
@@ -8,5 +9,6 @@
         public string rzp_orderid { get; set; }
 
         public string razorpay_signature { get; set; }
+    
     }
 }
